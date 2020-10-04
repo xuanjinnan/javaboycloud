@@ -1,0 +1,4 @@
+# Project exclude paths
+/commons/target/
+/hello-api/target/
+/resilience4j/target/
