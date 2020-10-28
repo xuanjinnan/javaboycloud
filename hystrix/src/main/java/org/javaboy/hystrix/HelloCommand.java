@@ -17,7 +17,7 @@ public class HelloCommand extends HystrixCommand<String> {
     @Override
     protected String run() throws Exception {
 //        int i = 1/0;
-        return restTemplate.getForObject("http://provider/hello2?name={1}",String.class,name);
+        return restTemplate.getForObject("http://provider/hello2?name={1}", String.class, name);
     }
 
     @Override

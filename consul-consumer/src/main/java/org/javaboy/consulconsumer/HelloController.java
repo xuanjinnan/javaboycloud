@@ -15,8 +15,9 @@ public class HelloController {
     LoadBalancerClient loadBalancerClient;
     @Autowired
     RestTemplate restTemplate;
+
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         ServiceInstance instance = loadBalancerClient.choose("consul-provider");
         URI uri = instance.getUri();
         return restTemplate.getForObject(uri.toString() + "/hello", String.class);

@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class UserController {
     @GetMapping("/user/{ids}")
-    public List<User> getUserByIds(@PathVariable String ids){
+    public List<User> getUserByIds(@PathVariable String ids) {
         System.out.println(ids);
         String[] split = ids.split(",");
         List<User> users = new ArrayList<>();

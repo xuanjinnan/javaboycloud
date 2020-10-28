@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @Autowired
     HelloService helloService;
+
     @GetMapping("/hello")
-    public String hello(){
-       return helloService.hello();
+    public String hello() {
+        return helloService.hello();
     }
 }

@@ -17,12 +17,14 @@ import java.util.concurrent.Future;
 public class UserService {
     @Autowired
     RestTemplate restTemplate;
-    @HystrixCollapser(batchMethod = "getUserByIds",collapserProperties = {@HystrixProperty(name="timerDelayInMilliseconds",value = "200")})
-    public Future<User> getUserById(Integer id){
+
+    @HystrixCollapser(batchMethod = "getUserByIds", collapserProperties = {@HystrixProperty(name = "timerDelayInMilliseconds", value = "200")})
+    public Future<User> getUserById(Integer id) {
         return null;
     }
+
     @HystrixCommand
-    public List<User> getUserByIds(List<Integer> ids){
+    public List<User> getUserByIds(List<Integer> ids) {
         String idsStr = StringUtils.join(ids, ",");
         System.out.println(idsStr);
         User[] forObject = restTemplate.getForObject("http://provider/user/{1}", User[].class, idsStr);

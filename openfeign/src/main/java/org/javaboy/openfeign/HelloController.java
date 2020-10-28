@@ -13,6 +13,7 @@ import java.net.URLEncoder;
 public class HelloController {
     @Autowired
     HelloService helloService;
+
     @GetMapping("/hello")
     public String hello() throws UnsupportedEncodingException {
         String hello = helloService.hello();
@@ -26,7 +27,7 @@ public class HelloController {
         User user1 = helloService.addUser2(user);
         System.out.println(user1);
         helloService.deleteUser2(1);
-        helloService.getUserByName(URLEncoder.encode("江南一点雨","UTF-8"));
+        helloService.getUserByName(URLEncoder.encode("江南一点雨", "UTF-8"));
         return hello;
 
     }

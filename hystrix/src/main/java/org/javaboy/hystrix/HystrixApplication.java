@@ -14,9 +14,10 @@ public class HystrixApplication {
     public static void main(String[] args) {
         SpringApplication.run(HystrixApplication.class, args);
     }
+
     @Bean
     @LoadBalanced
-    RestTemplate restTemplate(){
+    RestTemplate restTemplate() {
         return new RestTemplate();
     }
 }

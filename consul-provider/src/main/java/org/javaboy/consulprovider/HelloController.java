@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
     @Value("${server.port}")
     Integer port;
+
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return "hello " + port;
     }
 }

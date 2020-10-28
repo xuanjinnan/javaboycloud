@@ -14,7 +14,7 @@ public class UserCollapseCommand extends HystrixCollapser<List<User>, User, Inte
     private UserService userService;
     private Integer id;
 
-    public UserCollapseCommand( UserService userService, Integer id) {
+    public UserCollapseCommand(UserService userService, Integer id) {
         super(Setter.withCollapserKey(HystrixCollapserKey.Factory.asKey("userCollapseCommand"))
                 .andCollapserPropertiesDefaults(HystrixCollapserProperties.Setter().withTimerDelayInMilliseconds(200)));
         this.userService = userService;
@@ -26,6 +26,7 @@ public class UserCollapseCommand extends HystrixCollapser<List<User>, User, Inte
     public Integer getRequestArgument() {
         return id;
     }
+
     /*请求合并方法*/
     @Override
     protected HystrixCommand<List<User>> createCommand(Collection<CollapsedRequest<User, Integer>> collection) {
@@ -34,8 +35,9 @@ public class UserCollapseCommand extends HystrixCollapser<List<User>, User, Inte
             ids.add(userIntegerCollapsedRequest.getArgument());
 
         }
-        return new UserBatchCommand(ids,userService);
+        return new UserBatchCommand(ids, userService);
     }
+
     /*请求结果分发*/
     @Override
     protected void mapResponseToRequests(List<User> users, Collection<CollapsedRequest<User, Integer>> collection) {

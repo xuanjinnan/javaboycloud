@@ -13,11 +13,12 @@ public class ConsumerApplication {
     }
 
     @Bean
-    RestTemplate restTemplateOne(){
+    RestTemplate restTemplateOne() {
         return new RestTemplate();
     }
+
     @Bean
-    RestTemplate restTemplateTwo(){
+    RestTemplate restTemplateTwo() {
         return new RestTemplate();
     }
 

@@ -18,26 +18,27 @@ public class HelloController {
     RestTemplate restTemplate;
     @Autowired
     HelloService helloService;
+
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return helloService.hello();
     }
 
     @GetMapping("/hello2")
-    public String hello2(){
+    public String hello2() {
         HystrixRequestContext cxt = HystrixRequestContext.initializeContext();
         HelloCommand helloCommand = new HelloCommand(
                 HystrixCommand.Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("javaboy"))
-                ,restTemplate,"javaboy");
+                , restTemplate, "javaboy");
         String s = helloCommand.execute();
         System.out.println(s);
         HelloCommand helloCommand2 = new HelloCommand(
                 HystrixCommand.Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("javaboy"))
-                ,restTemplate,"javaboy");
+                , restTemplate, "javaboy");
         Future<String> s1 = helloCommand2.queue();
         String s2 = null;
         try {
-            s2  = s1.get();
+            s2 = s1.get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -48,8 +49,9 @@ public class HelloController {
         cxt.close();
         return s;
     }
+
     @GetMapping("/hello3")
-    public String hello3(){
+    public String hello3() {
         Future<String> future = helloService.hello2();
         String s = null;
         try {
@@ -77,6 +79,7 @@ public class HelloController {
 
     @Autowired
     UserService userService;
+
     @GetMapping("/hello5")
     public void hello5() throws ExecutionException, InterruptedException {
         HystrixRequestContext cxt = HystrixRequestContext.initializeContext();
@@ -85,7 +88,7 @@ public class HelloController {
         UserCollapseCommand command2 = new UserCollapseCommand(userService, 98);
         UserCollapseCommand command3 = new UserCollapseCommand(userService, 97);
         Future<User> q1 = command1.queue();
-        Future<User> q2 =  command2.queue();
+        Future<User> q2 = command2.queue();
         Future<User> q3 = command3.queue();
         User u1 = q1.get();
         User u2 = q2.get();
@@ -100,6 +103,7 @@ public class HelloController {
         System.out.println(u4);
         cxt.close();
     }
+
     @GetMapping("hello6")
     public void hello6() throws ExecutionException, InterruptedException {
         HystrixRequestContext cxt = HystrixRequestContext.initializeContext();

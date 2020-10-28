@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: javaboy-route
+          uri: lb://provider
+          filters:
+            - AddRequestParameter=name,javaboy
+          predicates:
+            - Method=GET
+  application:
+    name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111//eureka

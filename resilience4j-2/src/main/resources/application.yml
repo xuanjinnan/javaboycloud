@@ -2,21 +2,23 @@ resilience4j:
   retry:
     retry-aspect-order: 399 #表示 retry 的优先级，默认高于限流、断路器，数值越小，优先级越高
     backends:
-      retryA:
+      retryA: # 自定义策略 retryA
         maxRetryAttempts: 5 #重试次数
         waitDuration: 500 #重试等待时间
         exponentialBackoffMultiplier: 1.1 #间隔乘数，第一次 1.1秒，第二次 1.21 秒
-        retryExceptions:
+        retryExceptions: # 触发重试的异常
           - java.lang.RuntimeException
+  # 断路器配置
   circuitbreaker:
     instances:
-      cbA:
+      cbA: # 实例自定义名字
         ringBufferSizeInClosedState: 5
         ringBufferSizeInHalfOpenState: 3
-        waitInterval: 5000
-        recordException:
+        waitInterval: 5000 #断路器从 open 切换到 half open 需要保持的时间间隔
+        recordException: # 服务出现异常，就熔断，降级
           - org.springframework.web.client.HttpServerErrorException
-    circuit-breaker-aspect-order: 398
+    circuit-breaker-aspect-order: 398 #比 retry 先执行
+# 项目名及 eureka 配置
 spring:
   application:
     name: resilience4j

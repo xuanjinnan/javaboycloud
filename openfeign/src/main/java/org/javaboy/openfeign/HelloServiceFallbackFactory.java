@@ -5,6 +5,7 @@ import module.User;
 import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
+
 @Component
 public class HelloServiceFallbackFactory implements FallbackFactory<HelloService> {
     @Override

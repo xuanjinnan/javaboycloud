@@ -1,0 +1,16 @@
+# 做测试的，没用
+spring:
+  application:
+    name: zuul
+server:
+  port: 2020
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka
+
+zuul:
+  routes:
+    consumer-helo: /consumer/hello/**
+    consumer: /consumer/**
+

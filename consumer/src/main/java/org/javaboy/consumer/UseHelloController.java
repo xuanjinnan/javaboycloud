@@ -1,6 +1,7 @@
 package org.javaboy.consumer;
 
 //import org.javaboy.commons.User;
+
 import module.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -68,7 +69,9 @@ public class UseHelloController {
 //        String s = restTemplate.getForObject(stringBuffer.toString(), String.class);
         return "";
     }
+
     int counter = 0;
+
     @GetMapping("/hello33")
     public String hello33() throws MalformedURLException {
         HttpURLConnection conn = null;
@@ -82,11 +85,12 @@ public class UseHelloController {
                 .append(":")
                 .append(port)
                 .append("/hello");
-            URL url = new URL("http://localhost:1113/hello" );
+        URL url = new URL("http://localhost:1113/hello");
         System.out.println(stringBuffer);
         String s = restTemplate.getForObject(stringBuffer.toString(), String.class);
         return s;
     }
+
     @Autowired
     @Qualifier("restTemplateOne")
     RestTemplate restTemplate;
@@ -136,12 +140,13 @@ public class UseHelloController {
         s = balanceRestTemplate.getForObject(new URI(url), String.class);
         System.out.println(s);
     }
+
     @GetMapping("/hello6")
-    public void hello6(){
-        MultiValueMap map = new LinkedMultiValueMap<String,Object>();
-        map.add("username","javaboy");
-        map.add("password","123");
-        map.add("id",99);
+    public void hello6() {
+        MultiValueMap map = new LinkedMultiValueMap<String, Object>();
+        map.add("username", "javaboy");
+        map.add("password", "123");
+        map.add("id", 99);
         User user = balanceRestTemplate.postForObject("http://provider/user1", map, User.class);
         System.out.println(user);
 
@@ -149,12 +154,13 @@ public class UseHelloController {
         user = balanceRestTemplate.postForObject("http://provider/user2", user, User.class);
         System.out.println(user);
     }
+
     @GetMapping("/hello7")
-    public void hello7(){
-        MultiValueMap map = new LinkedMultiValueMap<String,Object>();
-        map.add("username","javaboy");
-        map.add("password","123");
-        map.add("id",99);
+    public void hello7() {
+        MultiValueMap map = new LinkedMultiValueMap<String, Object>();
+        map.add("username", "javaboy");
+        map.add("password", "123");
+        map.add("id", 99);
         URI uri = balanceRestTemplate.postForLocation("http://provider/register", map, User.class);
         System.out.println(uri);
 
@@ -163,23 +169,24 @@ public class UseHelloController {
     }
 
     @GetMapping("/hello8")
-    public void hello8(){
-        MultiValueMap<String,Object> map = new LinkedMultiValueMap<>();
-        map.add("id",99);
-        map.add("username","javaboy");
-        map.add("password","123");
-        balanceRestTemplate.put("http://provider/user1",map);
+    public void hello8() {
+        MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+        map.add("id", 99);
+        map.add("username", "javaboy");
+        map.add("password", "123");
+        balanceRestTemplate.put("http://provider/user1", map);
         User user = new User();
         user.setId(100);
         user.setUsername("xuan");
         user.setPassword("456");
         balanceRestTemplate.put("http://provider/user2", user);
     }
+
     @GetMapping("/hello9")
-    public  void hello9(){
+    public void hello9() {
         balanceRestTemplate.delete("http://provider/user1?id=11");
-        balanceRestTemplate.delete("http://provider/user1?id={1}",22);
-        balanceRestTemplate.delete("http://provider/user2/{1}",33);
+        balanceRestTemplate.delete("http://provider/user1?id={1}", 22);
+        balanceRestTemplate.delete("http://provider/user2/{1}", 33);
     }
 
 }
