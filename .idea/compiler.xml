@@ -6,22 +6,34 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="nacos" />
         <module name="hello-api" />
         <module name="config-server" />
-        <module name="config-client" />
+        <module name="sleuth" />
         <module name="stream" />
+        <module name="zipkin04" />
+        <module name="zipkin03" />
+        <module name="zipkin02" />
         <module name="gateway" />
-        <module name="openfeign" />
+        <module name="zipkin01" />
+        <module name="config-client" />
+        <module name="nacos02" />
         <module name="zuul" />
         <module name="resilience4j" />
         <module name="provider" />
         <module name="hystrix" />
+        <module name="consul-consumer" />
         <module name="consul-provider" />
+        <module name="sentinel" />
+        <module name="stream2" />
+        <module name="test" />
         <module name="resilience4j-2" />
-        <module name="commons" />
+        <module name="openfeign" />
         <module name="eureka" />
         <module name="consumer" />
-        <module name="consul-consumer" />
+        <module name="commons" />
+        <module name="nacos01" />
+        <module name="sleath2" />
         <module name="micrometer" />
       </profile>
     </annotationProcessing>
@@ -38,10 +50,22 @@
       <module name="gateway" options="-parameters" />
       <module name="hystrix" options="-parameters" />
       <module name="micrometer" options="-parameters" />
+      <module name="nacos" options="-parameters" />
+      <module name="nacos01" options="-parameters" />
+      <module name="nacos02" options="-parameters" />
       <module name="openfeign" options="-parameters" />
       <module name="provider" options="-parameters" />
       <module name="resilience4j-2" options="-parameters" />
+      <module name="sentinel" options="-parameters" />
+      <module name="sleath2" options="-parameters" />
+      <module name="sleuth" options="-parameters" />
       <module name="stream" options="-parameters" />
+      <module name="stream2" options="-parameters" />
+      <module name="test" options="-parameters" />
+      <module name="zipkin01" options="-parameters" />
+      <module name="zipkin02" options="-parameters" />
+      <module name="zipkin03" options="-parameters" />
+      <module name="zipkin04" options="-parameters" />
       <module name="zuul" options="-parameters" />
     </option>
   </component>

@@ -24,6 +24,18 @@
         <option value="$PROJECT_DIR$/config-server2/pom.xml" />
         <option value="$PROJECT_DIR$/config-client/pom.xml" />
         <option value="$PROJECT_DIR$/stream/pom.xml" />
+        <option value="$PROJECT_DIR$/stream2/pom.xml" />
+        <option value="$PROJECT_DIR$/sleuth/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkin01/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkin02/pom.xml" />
+        <option value="$PROJECT_DIR$/sleath2/pom.xml" />
+        <option value="$PROJECT_DIR$/test/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkin03/pom.xml" />
+        <option value="$PROJECT_DIR$/zipkin04/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos01/pom.xml" />
+        <option value="$PROJECT_DIR$/nacos02/pom.xml" />
+        <option value="$PROJECT_DIR$/sentinel/pom.xml" />
       </list>
     </option>
   </component>
