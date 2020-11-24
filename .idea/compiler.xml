@@ -6,38 +6,39 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="nacos" />
-        <module name="hello-api" />
+        <module name="sleath2" />
+        <module name="micrometer" />
         <module name="config-server" />
         <module name="sleuth" />
         <module name="stream" />
-        <module name="zipkin04" />
-        <module name="zipkin03" />
         <module name="zipkin02" />
         <module name="gateway" />
         <module name="zipkin01" />
-        <module name="config-client" />
-        <module name="nacos02" />
+        <module name="resilience4j-2" />
         <module name="zuul" />
         <module name="resilience4j" />
         <module name="provider" />
+        <module name="nacos01" />
         <module name="hystrix" />
-        <module name="consul-consumer" />
         <module name="consul-provider" />
         <module name="sentinel" />
         <module name="stream2" />
         <module name="test" />
-        <module name="resilience4j-2" />
+        <module name="config-client" />
         <module name="openfeign" />
-        <module name="eureka" />
+        <module name="hello-api" />
         <module name="consumer" />
+        <module name="nacos" />
+        <module name="nacos02" />
+        <module name="consul-consumer" />
         <module name="commons" />
-        <module name="nacos01" />
-        <module name="sleath2" />
-        <module name="micrometer" />
+        <module name="eureka" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="zipkin03" target="1.8" />
+      <module name="zipkin04" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
